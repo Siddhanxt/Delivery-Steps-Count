@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(88, 255, 230);
+}
+
+.container-list {
+    z-index: 10;
+    display: flex;
+    list-style: none;
+    background: #fff;
+    position: relative;
+    border-radius: 0.8rem;
+    padding: 1.2rem 0.8rem;
+    box-shadow: 0 15px 25px rgba(33, 20, 90, 0.225);
+}
+
+.container-item {
+    display: flex;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.container-item+.container-item:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    width: 100%;
+    height: 2px;
+    z-index: -10;
+    background: #e65b00;
+    transform: translateX(-50%);
+}
+
+.count {
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-weight: bold;
+    color: transparent;
+    position: relative;
+}
+
+.count:after {
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #e65b00;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -10;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.count:before {
+    content: "";
+    width: 20px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: center center;
+    transform: translate(-50%, -60%) rotate(-45deg);
+}
+
+.progress {
+    font-size: 14px;
+    margin-top: 0.9rem;
+}
+
+.unActive .count:before,
+.unActive~.container-item .count:before {
+    display: none;
+}
+
+.unActive~.container-item .count:after {
+    height: 40px;
+    width: 40px;
+}
+
+.unActive~.container-item .progress {
+    opacity: 0.7;
+}
+
+.unActive .count:after {
+    background: #fff;
+    border: 2px solid #e65b00;
+}
+
+.unActive .count {
+    color: #e65b00;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(57, 57, 57);
+}
